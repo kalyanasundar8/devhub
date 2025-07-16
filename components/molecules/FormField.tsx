@@ -2,13 +2,21 @@
 import React from "react";
 import InputField from "../atoms/InputField";
 import { Label } from "../ui/label";
+import { UseFormRegister } from "react-hook-form";
+
+type FormValues = {
+  username: string;
+  email: string;
+  password: string;
+  confirmpassword: string;
+};
 
 type Props = {
   type: string;
   label: string;
   htmlFor: string;
-  name: string;
-  register: any;
+  name: keyof FormValues;
+  register: UseFormRegister<FormValues>;
   error?: string;
 };
 

@@ -8,19 +8,21 @@ import FormField from "../molecules/FormField";
 import { signupSchema } from "@/lib/validations/userSignUpValidation";
 import ButtonComp from "../atoms/ButtonComp";
 
-type Props = {};
-
-export default function SignUpForm({}: Props) {
+export default function SignUpForm() {
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm({ resolver: zodResolver(signupSchema) });
 
+  const onSubmit = () => {
+    console.log("Submited")
+  }
+
   return (
     <div>
       <div>
-        <form>
+        <form onSubmit={handleSubmit(onSubmit)}>
           <div>
             <FormField
               type="text"
