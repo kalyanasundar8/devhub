@@ -16,23 +16,13 @@ export default function SignUpForm() {
   } = useForm({ resolver: zodResolver(signupSchema) });
 
   const onSubmit = () => {
-    console.log("Submited")
-  }
+    console.log("Submited");
+  };
 
   return (
     <div>
       <div>
         <form onSubmit={handleSubmit(onSubmit)}>
-          <div>
-            <FormField
-              type="text"
-              label="Username"
-              htmlFor="username"
-              name="username"
-              register={register}
-              error={errors.username?.message}
-            />
-          </div>
           <div>
             <FormField
               type="email"
